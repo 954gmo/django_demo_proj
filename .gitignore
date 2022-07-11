@@ -1,0 +1,7 @@
+Docs/token
+Docs/db.ini
+venv/*
+.idea/*
+Docs/.env
+example/uploads/*
+example/db.sqlite3

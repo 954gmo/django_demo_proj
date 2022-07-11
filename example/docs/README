@@ -1,0 +1,11 @@
+$ django-admin startproject <proj-name>
+$ cd <proj-name> && python manage.py startapp <app-name>
+$
+
+models.py
+admin.py
+
+forms.py
+/templates
+views.py
+urls.py

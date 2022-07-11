@@ -1,0 +1,18 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/django_demo/django_demo/
+ExecStart=/var/www/django_demo/venv/bin/gunicorn \
+	--error-logfile /var/log/gunicorn/error.log \
+	--access-logfile /var/log/gunicorn/access.log \
+	--workers 3 \
+	--bind unix:/run/gunicorn.sock \
+	django_demo.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

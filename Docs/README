@@ -1,0 +1,25 @@
+# system initialization reference
+https://www.postgresql.org/download/linux/ubuntu/
+https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-20-04
+
+!! change github credential in sys_init.sh if necessary.
+# to set up environment on a new machine
+source sys_init.sh
+
+# files in Docs
+django_demo: simple and basic nginx website setup
+env_setup.sh: shell script to setup nginx and postgresql
+sys_init.sh: shell script to setup linux environment for django_demo
+
+
+#
+$ django-admin startproject django_demo
+$ cd ./django_demo && python ./manage.py runserver
+$ python manage.py startapp demo_app
+
+$ python ./manage.py makemigrations
+$ python ./manage.py migrate
+
+$ python manager.py check
+
+
