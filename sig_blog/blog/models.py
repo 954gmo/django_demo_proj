@@ -24,3 +24,10 @@ class Post(models.Model):
 
     class Meta:
         ordering = ('-publish', )
+
+    objects = models.Manager()
+    published = PublishedManager()
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(status='published')
