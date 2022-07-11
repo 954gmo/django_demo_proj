@@ -5,3 +5,127 @@ $ python manage.py migrate
 $ python manage.py startapp <app name>
 
 $ python manage.py shell
+
+0. environment setup
+    - Django installation
+    - python virtual environment
+1. configuring a project
+
+$ django-admin startproject blog
+    blog/
+        manage.py # cmd-line utility used to interact with the project, it is a thin wrapper around the django-admin.py
+        blog/
+            __init__.py
+            asgi.py # the configuration to run your project as ASGI.
+            settings.py # settings and configuration for your project and contains initial default settings.
+            urls.py # URL patterns, each URL defined here is mapped to a view
+            wsgi.py # configuration to run your project as a Web Server Gateway Interface(WSGI) application.
+
+$ cd blog && python manage.py migrate
+$ python manage.py runserver <IP:PORT> \--settings=proj.settings
+    https://docs.djangoproject.com/en/4.0/ref/settings/
+
+
+    Project Settings
+    - DEBUG
+    - ALLOWED_HOSTS
+    - INSTALLED_APPS
+    - MIDDLEWARE
+    - ROOT_URLCONF
+    - DATABASES
+    - LANGUAGE_CODE
+    - USE_TZ
+
+2. create django app
+    $ python manage.py startapp blog
+    blog/
+        __init__.py
+        admin.py    # register models to include them in the Django administration site which is optional
+        apps.py     # main configuration of the blog application
+        migrations/ #
+        models.py   # data models of your app, can be left empty.
+        tests.py    #
+        views.py    # logic of your app, each view receives an HTTP request, processes it, and returns a response
+3. designing models and generating model migrations
+    https://docs.djangoproject.com/en/4.0/ref/models/fields/
+
+    - SlugField: https://www.geeksforgeeks.org/slugfield-django-models/
+    - ForeignKey: Many-to-one relationship
+
+    activating teh application
+    creating and applying migrations
+
+4. admin site for models
+
+    - create a superuser
+        admin
+        admin@admin.com
+        86241783
+
+    add models to the administration site and customize the way that models are displayed
+        admin.py
+
+5. working with QuerySets and managers
+https://docs.djangoproject.com/en/4.0/ref/models/
+    creating objects
+    $ python manage.py shell
+        from django.contrib.auth.models import User
+        from blog.models import Post
+        user = User.objects.get(username='admin')
+        post = Post(title='A post', slug='a-post', body='post body', author=user)
+        post.save()
+
+
+        or
+
+        Post.objects.create(title='another post', slug='another-post', body='another post body', author=user)
+
+    Updating objects
+        post.title = 'New title'
+        post.save()
+
+    Retrieving objects
+        all_posts = Post.objects.all()
+
+    filter(), exclude(), order_by()
+
+    Deleting objects
+
+    When QuerySet are evaluated, it translates into the SQL query to the database.
+
+
+    creating model managers ( similar to sql VIEW)
+        objects is the default manager of every model that retrieves all objects in the database.
+
+        use default_manager_name in the Meta to specify a different manager.
+
+6. Building views, templates and URLs
+    application namespace
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/#path-converters
+    path() and re_path()
+
+    canonical URLs for models
+    {% extends %}
+    {% load static %}
+    {% block <block name> %} {% endblock %}
+
+7. adding paginations to list views
+8. using Django's class-based views
+
+-- Advanced Features
+9. sending email with Django
+10. creating forms and handling them in views
+11. creating forms from models
+12. integrating third-party application
+13. complext querysets
+
+
+
+9. Sharing posts via email
+    - create a form for users to fill in name, email, recipient, and optional comments
+    - create a view in the views.py file that handle the posted data and sends the email
+    - add a URL pattern for the new view in the urls.py file of the blog app
+    - create a template to display the form
+10. adding comments to a post
+11. tagging posts
+12. recommending similar posts
