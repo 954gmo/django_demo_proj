@@ -5,3 +5,4 @@ venv/*
 Docs/.env
 example/uploads/*
 example/db.sqlite3
+demo2_blog/*
