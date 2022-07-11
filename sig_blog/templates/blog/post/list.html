@@ -16,5 +16,5 @@
     {% endfor %}
 
     {{page_obj}}
-    {% include "blog/post/pagination.html" with page=posts %}
+    {% include "blog/post/pagination.html" with page=page_obj %}
 {% endblock %}
