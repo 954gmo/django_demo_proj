@@ -127,5 +127,7 @@ https://docs.djangoproject.com/en/4.0/ref/models/
     - add a URL pattern for the new view in the urls.py file of the blog app
     - create a template to display the form
 10. adding comments to a post
+
 11. tagging posts
 12. recommending similar posts
+
