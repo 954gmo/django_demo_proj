@@ -150,3 +150,5 @@ Custom template tags
 sitemap: an XML file that tells search engines the pages of your website, their relevance, and how frequently they are updated.
 using a sitemap will make your site more visible in search engine randkings, sitemaps help crawlers to index your website's content.
 
+
+stemming: the process of reducing words to their word stem, base or root form.
