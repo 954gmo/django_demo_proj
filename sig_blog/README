@@ -131,3 +131,22 @@ https://docs.djangoproject.com/en/4.0/ref/models/
 11. tagging posts
 12. recommending similar posts
 
+    1. retrieve all tags for the current posts
+    2. get all posts that are tagged with any of those tags
+    3. exclude the current post from that list to avoid recommending the same post
+    4. order the results by the number of tags shared with the current post
+    5. in the case of two or more posts with the same number of tags, recommend the most recent post
+    6. Limit the query to the number of posts you want to recommend
+
+
+creating custom template tags and filters
+adding a sitemap and post feed
+Implementing full-text search with PostgreSQL
+
+Custom template tags
+    template tags must live inside Django Applications
+
+
+sitemap: an XML file that tells search engines the pages of your website, their relevance, and how frequently they are updated.
+using a sitemap will make your site more visible in search engine randkings, sitemaps help crawlers to index your website's content.
+

@@ -6,3 +6,4 @@ Docs/.env
 example/uploads/*
 example/db.sqlite3
 demo2_blog/*
+sig_blog/config.ini
