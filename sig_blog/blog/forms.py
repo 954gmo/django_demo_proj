@@ -7,7 +7,7 @@ __ENTITY_author__ = "SIX DIGIT INVESTMENT GROUP"
 __author__ = "GWONGZAN"
 
 from django import forms
-from models import Comment
+from .models import Comment
 
 
 class EmailPostForm(forms.Form):
